@@ -50,3 +50,12 @@ git push -u origin main
 
 **说明**:
 由于 WordPress REST API 目前无法导出 ACF 字段（疑似插件丢失或未配置），前端在同步失败后会退回到本地 Mock 数据。之前 Mock 数据仅包含 3 位圣贤，导致页面空旷。现已将所有已知的 8 位圣贤法相补全，确保了首页的“视觉丰满度”。
+
+### 2026-03-13 06:10 | 彻底修复首页圣贤格阵显示（由主公确认生效）
+**执行官**: A1
+**Commit HASH**: [abf13a5]
+**修复项目**:
+- `thinkerai/src/components/CharacterGrid.tsx`: 彻底重构。移除了硬编码的 featuredCharacters，改为通过 useChatContext 调用全局圣贤名录。
+
+**说明**:
+之前的修复未生效是因为首页存在两个“格阵”组件：CharacterShowcase（用于辩论选择）和 CharacterGrid（主信息流）。CharacterGrid 之前由于使用了静态 Dummy 数据且图片路径错误，导致显示残缺。现已将其完全接驳至全局状态池，实现八圣同框。
