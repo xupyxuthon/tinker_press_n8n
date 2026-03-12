@@ -40,3 +40,13 @@ git push -u origin main
 - **已确认** 8083 (WP), 5678 (n8n), 3000 (Gateway), 3001 (Front) 全线贯通。
 - **注意**: 由于 WordPress 库文件巨大，首次 push 耗时较长。
 
+
+### 2026-03-13 05:45 | 修复首页圣贤格阵显示数量上限
+**执行官**: A1
+**Commit HASH**: [5f7eeee]
+**修复项目**:
+- `thinkerai/src/lib/mockData.ts`: 扩充 mockCharacters，将显示的圣贤数量从 3 位提升至 8 位。
+- 绑定了本地 `public/` 目录下的真实 UUID 命名图片资产。
+
+**说明**:
+由于 WordPress REST API 目前无法导出 ACF 字段（疑似插件丢失或未配置），前端在同步失败后会退回到本地 Mock 数据。之前 Mock 数据仅包含 3 位圣贤，导致页面空旷。现已将所有已知的 8 位圣贤法相补全，确保了首页的“视觉丰满度”。
