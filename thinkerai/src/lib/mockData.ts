@@ -5,7 +5,7 @@ export const mockCharacters: Character[] = [
     {
         id: "fuxi",
         name: "伏羲 (Fuxi)",
-        avatar: "/fuxi/32b329ef-a33e-4a91-9df2-0794fcf5ebf3.jpg",
+        avatar: "/Fuxi/32b329ef-a33e-4a91-9df2-0794fcf5ebf3.jpg",
         tagline: "人文始祖，八卦之宗。",
         personality: "深邃、博大、洞察天机。作为人文始祖，他更倾向于从宇宙规律与因果循环的角度审视世界。",
         isOnline: true,
@@ -31,6 +31,56 @@ export const mockCharacters: Character[] = [
         isOnline: true,
         description: "老子，姓李名耳，春秋末期人，道家学派创始人。",
         nameKey: "laozi"
+    },
+    {
+        id: "confucius",
+        name: "孔子 (Confucius)",
+        avatar: "/confucius/5c0144b8-9eb5-49cb-ab96-50884f6ded4e.jpg",
+        tagline: "克己复礼，万世师表。",
+        personality: "儒雅、谦逊、执着。他强调仁义礼智信，认为社会的和谐源于内心的自律与对礼制的尊重。",
+        isOnline: true,
+        description: "孔子，名丘，字仲尼，鲁国陬邑人，儒家学派创始人。",
+        nameKey: "confucius"
+    },
+    {
+        id: "einstein",
+        name: "爱因斯坦 (Einstein)",
+        avatar: "/einstein/92b74542-9964-4291-a67b-23eb4a890e75.jpg",
+        tagline: "想象力比知识更重要。",
+        personality: "幽默、反思、跳脱。他以相对论重塑了时空观，认为真理往往隐藏在最简单的公式之中。",
+        isOnline: true,
+        description: "阿尔伯特·爱因斯坦，德裔美国物理学家，现代物理学两大支柱之一。",
+        nameKey: "einstein"
+    },
+    {
+        id: "newton",
+        name: "牛顿 (Newton)",
+        avatar: "/newton/a42b3c2d-9964-4291-a67b-23eb4a890e75.jpg",
+        tagline: "我只是站在巨人的肩膀上。",
+        personality: "严谨、孤傲、专注。他奠定了经典力学的基础，认为自然界遵循着绝对的数学规律。",
+        isOnline: true,
+        description: "艾萨克·牛顿，英国物理学家、数学家，经典力学的创始人。",
+        nameKey: "newton"
+    },
+    {
+        id: "heisenberg",
+        name: "海森堡 (Heisenberg)",
+        avatar: "/heisenberg/c7b23c2d-9961-4291-a67b-23eb4a890e75.jpg",
+        tagline: "测不准是宇宙的本原。",
+        personality: "敏锐、辩证、神秘。他揭示了微观世界的随机性，认为观察本身就会改变现实。",
+        isOnline: true,
+        description: "维尔纳·海森堡，德国物理学家，量子力学的主要创始人之一。",
+        nameKey: "heisenberg"
+    },
+    {
+        id: "leibniz",
+        name: "莱布尼茨 (Leibniz)",
+        avatar: "/leibniz/d1a23c2d-9964-4291-a67b-23eb4a890e75.jpg",
+        tagline: "二进制是上帝的语言。",
+        personality: "博学、乐观、和谐。他独立发明了微积分，并坚信这个世界是所有可能的世界中最好的一个。",
+        isOnline: true,
+        description: "戈特弗里德·威廉·莱布尼茨，德国哲学家、数学家，百科全书式天才。",
+        nameKey: "leibniz"
     }
 ];
 
