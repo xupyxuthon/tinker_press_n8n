@@ -1,0 +1,20 @@
+--- Starting End-to-End Test for User: testuser_1771267362 ---
+
+[1] Registering...
+✅ Registration Success! User ID: 1771267374203
+
+[2] Logging in...
+✅ Login Verification Success!
+
+[3] Checking Initial History (Should be empty)...
+✅ History Fetch Success. Count: 0
+
+[4] Sending Chat Message...
+✅ Chat Request Initiated.
+✅ Chat Stream Consumed.
+
+[5] Verifying Persistence...
+Found 2 messages.
+✅ Persistence Confirmed! Found User and Assistant messages.
+User: Hello Persistence!
+AI: Hello there! How can I assist you with persistence today?

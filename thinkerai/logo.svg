@@ -1,0 +1,21 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 125 35" width="125" height="35">
+	<defs>
+		<image  width="125" height="35" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH0AAAAjCAMAAACO2vWQAAAAAXNSR0IB2cksfwAAAMxQTFRFExMTiYmJpqamTk5O4eHh////MTExbGxsMB4haTU+hUBMoUtZTCkvTCovxMTE9myE922E922F2mJ2vldp926F+G6F22N3vVVn9muD9WuD9m2E9muE92yE22J3aDQ99WqDhD9LoElYMB8i2F509WqC2mF29WmC9GiC9GmCSygv2WF2Lx4hvFNm2WB182aB82eB9GeB11xzaDM98mWA82aA1lxy111z9GiBvFRm8maA1lty2F90nkZXnkdXn0dXgz1KvVRnoElZoEpZhT9MhbA8eQAAAxNJREFUeJztlzuPEzEQgMf2ZpPLPWg4UiAOARIFoCs4GiT+OgUNDQUFEhToxAmQQAjxSrgl3vWamfFzdwm64u7SxM06s575Zsbj8UbAOofY0M/BEFoSZl30Ai21G/qGvqGfnV7WIEaN6f8uScLSUmhUsGVjhlqerlCitH8TFeOYCOwLYgE7uHqe08ete1pjnW6j/O8CYOsXLhhXYa21wagSzoKRTC9bfBhvaa9yimlMR0QUNKz8ktH3ommnzXbiICPZCoDGuSiK3DjGTjHYxrlPS+Qyez8T4hQf21DZAtpviZ6bYX87rCHdRa9kvojoGVJS7uoOXMECduekpGDrQ6SzEjRSmbZgOO+DNRLaIqcbK5XQRXCRNpu0hBGezkwXfJFtAo0DAbrU46+NKIkrU+zspytZYYOqM8J+BLqLihJFL/kVi9w+kQGOgyb8UuhEv9XCUswXOLv93eLuJ3rfTxjFBMbiSfRAIJ99WfEesPucojY947gjoJbveDodbcP22w49LxC27x0XRZ/Ovnm6B8SQ2Q9KzAh6DeAu6tr3PN3BRVns/aUciq8YSmGP7g83SXzxp25TTnhdlhc3JjcFtOqNo+9UcP11J/ZgpxsKxPwO6Tkh+e+87WcTM69w3094uoV1dy1lftAYyJhLKhfUv+lcfVKH7fF053lK3n2AY/gD8AC3oz5m0UzKxcGrSOdMuy4zmdtgjbLBiVxBZw6d/LLmc5kly6YyPqTu9hLg4Sm0YBA/uVKYKo/dnRjb2t0KrFqGBsBGYCXdNyA79X3I071uqNojrPXyBUIPxQ/k1fufUKjhaoo9arA1SuY4Pyyr6N12HOvWORWO2yNd1hJjd3UHZGGJTWU/o2eG/BUSu6hdue+Zlg3dJqmGX0clxv6cZhj9T3w0MPsIOo+drk+6w+x0bpPgVNjpb0DBaNn5ZqZpod2iWmIg2IEhiHyt+LsG4Ant+zOeTu7pSpkbJ58fo+xp/+ui1HAuI+uU/x0X8l9mcLtdKj01izXQB7fbpdIHF+Zl0jn0s33eXgSd6u1Moa/5//tfTBSRM4KsxxwAAAAASUVORK5CYII="/>
+		<image  width="125" height="35" id="img2" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH0AAAAjAQMAAACDypfhAAAAAXNSR0IB2cksfwAAAANQTFRFExMTXEsgvwAAABNJREFUeJxjZEADjKMCowIUCQAALCkAJJEzz+MAAAAASUVORK5CYII="/>
+	</defs>
+	<style>
+		tspan { white-space:pre } 
+		.t0 { font-size: 24px;fill: #f9f9f9;font-weight: 700;font-family: "DejaVuSansCondensed-Bold", "DejaVu Sans" } 
+		.t1 { font-size: 24px;fill: #cd8d37;font-weight: 700;font-family: "DejaVuSansCondensed-Bold", "DejaVu Sans" } 
+	</style>
+	<use id="Background" href="#img1" x="0" y="0"/>
+	<use id="Layer 1" href="#img2" x="0" y="0"/>
+	<text id="Thinker" transform="translate(1,26)">
+		<tspan x="0" y="0" class="t0">T</tspan><tspan  y="0" class="t0">h</tspan><tspan  y="0" class="t0">i</tspan><tspan  y="0" class="t0">n</tspan><tspan  y="0" class="t0">k</tspan><tspan  y="0" class="t0">e</tspan><tspan  y="0" class="t0">r
+</tspan>
+	</text>
+	<text id="AI" transform="translate(93,26)">
+		<tspan x="0" y="0" class="t1">A</tspan><tspan  y="0" class="t1">I</tspan><tspan  y="0" class="t1">
+</tspan>
+	</text>
+</svg>

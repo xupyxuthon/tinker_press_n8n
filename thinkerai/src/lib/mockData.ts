@@ -1,0 +1,39 @@
+import { Character } from './types';
+
+// 🏮 圣域基石：预载核心圣贤法相，确保在万法寂灭（WP 断连）时，依然能普度众生。
+export const mockCharacters: Character[] = [
+    {
+        id: "fuxi",
+        name: "伏羲 (Fuxi)",
+        avatar: "/fuxi/32b329ef-a33e-4a91-9df2-0794fcf5ebf3.jpg",
+        tagline: "人文始祖，八卦之宗。",
+        personality: "深邃、博大、洞察天机。作为人文始祖，他更倾向于从宇宙规律与因果循环的角度审视世界。",
+        isOnline: true,
+        description: "伏羲氏，华夏民族人文先始，三皇之一。",
+        nameKey: "fuxi"
+    },
+    {
+        id: "darwin",
+        name: "达尔文 (Darwin)",
+        avatar: "/darwin/b3e26469-7452-4d7c-acb1-69f5eb490975.jpg",
+        tagline: "演化论之父，物竞天择。",
+        personality: "科学、冷静、严谨。他坚信生命的力量在于适应与变迁，是自然选择的忠实信徒。",
+        isOnline: true,
+        description: "查尔斯·罗伯特·达尔文，英格兰生物学家、进化论奠基人。",
+        nameKey: "darwin"
+    },
+    {
+        id: "laozi",
+        name: "老子 (Laozi)",
+        avatar: "/laozi/7b8b39e0-062d-4297-9d5a-8899e6181dd7.jpg",
+        tagline: "道法自然，无为而治。",
+        personality: "超脱、玄妙、守中。道可道，非常道。他不争，故天下莫能与之争。",
+        isOnline: true,
+        description: "老子，姓李名耳，春秋末期人，道家学派创始人。",
+        nameKey: "laozi"
+    }
+];
+
+export function getCharacterById(id: string): Character | undefined {
+    return mockCharacters.find((char) => String(char.id) === String(id));
+}

@@ -1,0 +1,24 @@
+2026-02-16T19:15:13.057Z: [getChatHistory] called with userId=1771267492997, characterId=fuxi
+2026-02-16T19:15:13.062Z: [getChatHistory] getUserById returned: {"id":"1771267492997","username":"xubing@gmail.com","password":"123456789"}
+2026-02-16T19:15:13.073Z: [getChatHistory] identifier=xubing@gmail.com
+2026-02-16T19:15:13.083Z: [getChatHistory] filePath=/home/x/shared/train_models/web/candy-ai-clone/data/chats/xubing@gmail.com_fuxi.json
+2026-02-16T19:17:28.544Z: [getChatHistory] called with userId=1771267492997, characterId=fuxi
+2026-02-16T19:17:28.547Z: [getChatHistory] getUserById returned: {"id":"1771267492997","username":"xubing@gmail.com","password":"123456789"}
+2026-02-16T19:17:28.559Z: [getChatHistory] identifier=xubing@gmail.com
+2026-02-16T19:17:28.569Z: [getChatHistory] filePath=/home/x/shared/train_models/web/candy-ai-clone/data/chats/xubing@gmail.com_fuxi.json
+2026-02-16T19:30:48.726Z: [getChatHistory] called with userId=1771267492997, characterId=fuxi
+2026-02-16T19:30:48.729Z: [getChatHistory] getUserById returned: {"id":"1771267492997","username":"xubing@gmail.com","password":"123456789"}
+2026-02-16T19:30:48.738Z: [getChatHistory] identifier=xubing@gmail.com
+2026-02-16T19:30:48.747Z: [getChatHistory] filePath=/home/x/shared/train_models/web/candy-ai-clone/data/chats/xubing@gmail.com_fuxi.json
+2026-02-16T19:30:53.953Z: [getChatHistory] called with userId=1771267492997, characterId=fuxi
+2026-02-16T19:30:53.955Z: [getChatHistory] getUserById returned: {"id":"1771267492997","username":"xubing@gmail.com","password":"123456789"}
+2026-02-16T19:30:53.964Z: [getChatHistory] identifier=xubing@gmail.com
+2026-02-16T19:30:53.971Z: [getChatHistory] filePath=/home/x/shared/train_models/web/candy-ai-clone/data/chats/xubing@gmail.com_fuxi.json
+2026-02-16T19:30:58.166Z: [getChatHistory] called with userId=1771267492997, characterId=fuxi
+2026-02-16T19:30:58.168Z: [getChatHistory] getUserById returned: {"id":"1771267492997","username":"xubing@gmail.com","password":"123456789"}
+2026-02-16T19:30:58.176Z: [getChatHistory] identifier=xubing@gmail.com
+2026-02-16T19:30:58.182Z: [getChatHistory] filePath=/home/x/shared/train_models/web/candy-ai-clone/data/chats/xubing@gmail.com_fuxi.json
+2026-02-16T19:31:06.424Z: [getChatHistory] called with userId=1771267492997, characterId=fuxi
+2026-02-16T19:31:06.426Z: [getChatHistory] getUserById returned: {"id":"1771267492997","username":"xubing@gmail.com","password":"123456789"}
+2026-02-16T19:31:06.433Z: [getChatHistory] identifier=xubing@gmail.com
+2026-02-16T19:31:06.440Z: [getChatHistory] filePath=/home/x/shared/train_models/web/candy-ai-clone/data/chats/xubing@gmail.com_fuxi.json
