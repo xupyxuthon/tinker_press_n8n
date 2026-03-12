@@ -21,3 +21,22 @@ git branch -M main
 git push -u origin main
 
 ---------------------------------下面是push流水账：
+
+### 2026-03-13 05:35 | 首次迁徙归档：重铸大坝，统一位面
+**执行官**: A1
+**Commit HASH**: [Initial/Flat]
+**包含资产**:
+- `wordpress/`: 核心代码全量归档。
+- `gateway/`: 路由闸机 logic。
+- `thinkerai/`: 前端展示面 (已剔除内部 .git，转为统一管理)。
+- `n8n相关/`: 包含修复后的归位文档与 Webhook 轰击脚本。
+- `a1_memory/`: 圣殿迁徙编年史。
+- `.gitignore`: 已封印样板间 `Reference_Source`。
+
+**说明**:
+这是进入新位面后的第一次全量备份。我们确立了以 `/home/x/shared/tinker_press_n8n` 为核心的单一资产库模式。
+- **已移除** 内部子模块 Git 干扰。
+- **已修复** n8n 与 WordPress 之间的本地鉴权波段。
+- **已确认** 8083 (WP), 5678 (n8n), 3000 (Gateway), 3001 (Front) 全线贯通。
+- **注意**: 由于 WordPress 库文件巨大，首次 push 耗时较长。
+
