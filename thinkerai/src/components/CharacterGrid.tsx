@@ -7,88 +7,21 @@ import { Badge } from '@/components/ui/badge';
 import { Search, Filter, Heart, MessageCircle, ArrowRight } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
+import { useChatContext } from '@/contexts/ChatContext';
 
-// Mock character data for homepage
-const featuredCharacters = [
-  {
-    id: 1,
-    name: "Luna",
-    avatar: "/api/placeholder/200/200",
-    tagline: "Mystical and enchanting",
-    category: "Fantasy",
-    isOnline: true,
-    isPremium: false,
-    likes: 15420,
-    messages: 892341
-  },
-  {
-    id: 2,
-    name: "Sophia",
-    avatar: "/api/placeholder/200/200",
-    tagline: "Smart and sophisticated",
-    category: "Companion",
-    isOnline: true,
-    isPremium: true,
-    likes: 23156,
-    messages: 1205678
-  },
-  {
-    id: 3,
-    name: "Yuki",
-    avatar: "/api/placeholder/200/200",
-    tagline: "Sweet and caring",
-    category: "Anime",
-    isOnline: false,
-    isPremium: false,
-    likes: 8934,
-    messages: 456789
-  },
-  {
-    id: 4,
-    name: "Isabella",
-    avatar: "/api/placeholder/200/200",
-    tagline: "Passionate and romantic",
-    category: "Romance",
-    isOnline: true,
-    isPremium: true,
-    likes: 31289,
-    messages: 1567890
-  },
-  {
-    id: 5,
-    name: "Emma",
-    avatar: "/api/placeholder/200/200",
-    tagline: "Fun and adventurous",
-    category: "Companion",
-    isOnline: false,
-    isPremium: false,
-    likes: 12756,
-    messages: 678901
-  },
-  {
-    id: 6,
-    name: "Aria",
-    avatar: "/api/placeholder/200/200",
-    tagline: "Creative and artistic",
-    category: "Fantasy",
-    isOnline: true,
-    isPremium: true,
-    likes: 19834,
-    messages: 923456
-  }
-];
-
-const categories = ["All", "Companion", "Fantasy", "Anime", "Romance", "Sci-Fi"];
+const categories = ["All", "Sage", "Scientist", "Philosopher"];
 
 export function CharacterGrid() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [characters, setCharacters] = useState(featuredCharacters);
+  const { characters } = useChatContext();
 
   const filteredCharacters = characters.filter((char) => {
     const matchesSearch = char.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         char.tagline.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesCategory = selectedCategory === "All" || char.category === selectedCategory;
+      char.tagline.toLowerCase().includes(searchQuery.toLowerCase());
+    // Note: Our real character objects don't have 'category' currently, 
+    // so we'll match All for now or add logic if categories are added to types.
+    const matchesCategory = selectedCategory === "All";
     return matchesSearch && matchesCategory;
   });
 
@@ -105,7 +38,7 @@ export function CharacterGrid() {
             className="pl-10"
           />
         </div>
-        
+
         <div className="flex gap-2 flex-wrap">
           {categories.map((category) => (
             <Button
@@ -129,15 +62,6 @@ export function CharacterGrid() {
             className="group relative bg-card border border-border rounded-xl overflow-hidden card-hover cursor-pointer"
             onClick={() => window.location.href = `/chat?character=${character.id}`}
           >
-            {/* Premium Badge */}
-            {character.isPremium && (
-              <div className="absolute top-2 right-2 z-10">
-                <Badge className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black text-xs font-bold glow-primary">
-                  PREMIUM
-                </Badge>
-              </div>
-            )}
-
             {/* Online Status */}
             {character.isOnline && (
               <div className="absolute top-2 left-2 z-10">
@@ -151,8 +75,8 @@ export function CharacterGrid() {
             {/* Avatar */}
             <div className="aspect-square relative overflow-hidden gradient-card">
               <Avatar className="w-full h-full rounded-none">
-                <AvatarImage 
-                  src={character.avatar} 
+                <AvatarImage
+                  src={character.avatar}
                   alt={character.name}
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -160,7 +84,7 @@ export function CharacterGrid() {
                   {character.name[0]}
                 </AvatarFallback>
               </Avatar>
-              
+
               {/* Overlay gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
@@ -176,28 +100,11 @@ export function CharacterGrid() {
                     {character.tagline}
                   </p>
                 </div>
-                <Badge variant="secondary" className="text-xs ml-2 shrink-0">
-                  {character.category}
-                </Badge>
-              </div>
-
-              {/* Stats */}
-              <div className="flex items-center justify-between text-xs text-muted-foreground mb-3">
-                <div className="flex items-center gap-3">
-                  <div className="flex items-center gap-1 hover:text-primary transition-colors">
-                    <Heart className="h-3 w-3" />
-                    <span>{character.likes.toLocaleString()}</span>
-                  </div>
-                  <div className="flex items-center gap-1 hover:text-primary transition-colors">
-                    <MessageCircle className="h-3 w-3" />
-                    <span>{(character.messages / 1000000).toFixed(1)}M</span>
-                  </div>
-                </div>
               </div>
 
               {/* Chat Button */}
-              <Button 
-                className="w-full gradient-primary hover-lift text-white border-0"
+              <Button
+                className="w-full gradient-primary hover-lift text-white border-0 mt-4"
                 onClick={(e) => {
                   e.stopPropagation();
                   window.location.href = `/chat?character=${character.id}`;
@@ -217,8 +124,8 @@ export function CharacterGrid() {
           <div className="text-muted-foreground text-lg mb-4">
             No characters found matching your criteria
           </div>
-          <Button 
-            variant="outline" 
+          <Button
+            variant="outline"
             onClick={() => {
               setSearchQuery("");
               setSelectedCategory("All");
@@ -231,3 +138,4 @@ export function CharacterGrid() {
     </div>
   );
 }
+
