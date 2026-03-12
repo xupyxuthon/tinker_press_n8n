@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- 侧边情报库 -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-database"></i> 历史情报库
+            </div>
+            <div id="history-list" class="history-list">
+                <div class="history-item">
+                    <div class="history-time">系统待命</div>
+                    <div class="history-title">等待接入分布式记忆...</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 主战场 -->
+        <main class="main-stage">
+            <!-- 并发监控面板 -->
+            <div id="monitor-panel" class="monitor-panel">
+                <div class="monitor-header">
+                    <span>⚡ 并发实时监测</span>
+                    <span id="active-tasks-count" style="color: var(--accent-cyan); font-size: 0.7rem;">0 ACTIVE</span>
+                </div>
+                <div id="monitor-list" class="monitor-list"></div>
+            </div>
+
+            <nav
+                style="display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; background: rgba(0,0,0,0.2); border-bottom: 1px solid var(--glass-border);">
+                <div class="logo" style="font-size: 1.2rem; font-weight: 800; color: white;">
+                    <span class="text-gradient">ANDY</span> AI <span
+                        style="font-size: 0.6rem; opacity: 0.5;">v6.0</span>
+                </div>
+                <div class="nav-links" style="display: flex; align-items: center; gap: 1.5rem;">
+                    <% if (user) { %>
+                        <div class="pioneer-rank"
+                            style="font-size: 0.8rem; color: var(--accent-gold); font-weight: 600;">
+                            <i class="fas fa-certificate"></i> 分布式记忆先锋官
+                        </div>
+                        <% } %>
+                            <div id="user-status" style="font-size: 0.85rem; color: #a1a1aa;">
+                                <% if (user) { %>
+                                    <i class="fas fa-crown" style="color: gold;"></i>
+                                    <%= user.name %>
+                                        <% } else { %>
+                                            访客模式
+                                            <% } %>
+                            </div>
+                            <% if (!user) { %>
+                                <button id="dam-btn" class="btn-primary" onclick="toggleLoginModal(true)"
+                                    style="padding: 0.4rem 1rem; font-size: 0.8rem;">大坝启动</button>
+                                <% } else { %>
+                                    <button id="dam-btn" class="btn-primary" onclick="logout()"
+                                        style="padding: 0.4rem 1rem; font-size: 0.8rem; background:rgba(239,68,68,0.2);">断开</button>
+                                    <% } %>
+                </div>
+            </nav>
+
+            <div class="container"
+                style="flex: 1; padding: 2rem; overflow: hidden; display: flex; flex-direction: column;">
+                <div id="chat-box" class="chat-container"
+                    style="flex: 1; overflow-y: auto; padding-right: 1rem; margin-bottom: 1.5rem;">
+                    <div class="chat-message">
+                        <div class="message-bubble ai-bubble">
+                            <strong>[先锋官控制中心]</strong> 分布式记忆模块已挂载。双将辩论逻辑锁定 120s 窗口，主公随时可发起 10 次并发演习。
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-area glass-card" style="padding: 1.5rem; background: rgba(255,255,255,0.02);">
+                    <div id="summoning-status" class="summoning-text" style="margin-bottom: 0.5rem; min-height: 20px;">
+                    </div>
+                    <div style="display: flex; gap: 1rem;">
+                        <input type="text" id="chat-input" class="input-field" placeholder="输入高级战略指令..." <%=user ? ''
+                            : 'disabled' %>>
+                        <button id="send-btn" class="btn-primary" style="padding: 0 1.5rem;" <%=user ? '' : 'disabled'
+                            %>>
+                            <i class="fas fa-bolt"></i> 发射
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- 登录模态框 -->
+    <div id="login-modal"
+        style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 2000;">
+        <div class="glass-card"
+            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; padding: 2.5rem;">
+            <h2 style="margin-bottom: 1.5rem;" class="text-gradient">长生殿身份识别</h2>
+            <div id="login-error" class="alert-danger"
+                style="display: none; margin-bottom: 1rem; color: #ef4444; font-size: 0.85rem;"></div>
+            <form id="login-form">
+                <div style="margin-bottom: 1.25rem;">
+                    <label
+                        style="display: block; margin-bottom: 0.5rem; font-size: 0.8rem; color: #a1a1aa;">密级账号</label>
+                    <input type="text" id="username" class="input-field" required>
+                </div>
+                <div style="margin-bottom: 2rem;">
+                    <label
+                        style="display: block; margin-bottom: 0.5rem; font-size: 0.8rem; color: #a1a1aa;">核心密钥</label>
+                    <input type="password" id="password" class="input-field" required>
+                </div>
+                <div style="display: flex; gap: 1rem;">
+                    <button type="button" class="btn-secondary" style="flex: 1;"
+                        onclick="toggleLoginModal(false)">取消</button>
+                    <button type="submit" class="btn-primary" style="flex: 2;">授权启动</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+
+</html>

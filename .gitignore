@@ -1,0 +1,32 @@
+# 核心禁区：Reference_Source (只读样板间)
+Reference_Source只准看不能运行也不能修改/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Next.js
+.next/
+out/
+build/
+
+# Logs and databases (local state)
+*.log
+gateway.log
+thinkerai.log
+wordpress_mysql/db_data/
+.n8n/
+database.sqlite
+
+# System files
+.DS_Store
+Thumbs.db
+
+# User specific envs (if they contain secrets, normally ignored, but let's check user logs)
+# .env.local
+# .env.development.local
+# .env.test.local
+# .env.production.local
