@@ -81,13 +81,22 @@ export function ChatProvider({ children }: { children: ReactNode }) {
                     }));
 
                 if (syncedSages.length > 0) {
-                    console.log(`[ChatContext] 成功同步 ${syncedSages.length} 位圣贤`);
-                    setCharacters(syncedSages);
-                    setActiveCharacterState(syncedSages[0]);
+                    console.log(`[ChatContext] 圣经阁感应成功，拉取到 ${syncedSages.length} 位圣贤。`);
+
+                    setCharacters(prev => {
+                        const sageMap = new Map<string, Character>();
+                        // 1. 先载入当前所有角色（通常是 mockCharacters）作为基盘
+                        prev.forEach(s => sageMap.set(String(s.id), s));
+                        // 2. 用同步回来的数据进行覆盖或新增
+                        syncedSages.forEach(s => sageMap.set(String(s.id), s));
+
+                        const merged = Array.from(sageMap.values());
+                        console.log(`[ChatContext] 灵韵合一完成。当前圣殿共有 ${merged.length} 位圣贤显圣。`);
+                        return merged;
+                    });
                 }
             } catch (err) {
-                console.warn("[ChatContext] 圣识同步受阻（可能由于 8083 端口封闭），已维持本地法相:", err);
-                // 无需再次设置，因为初始状态已是 mockCharacters
+                console.warn("[ChatContext] 圣识同步受阻，维持本地法相阵列:", err);
             } finally {
                 setIsLoading(false);
             }

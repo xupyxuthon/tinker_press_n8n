@@ -45,7 +45,7 @@ export const mockCharacters: Character[] = [
     {
         id: "einstein",
         name: "爱因斯坦 (Einstein)",
-        avatar: "/einstein/92b74542-9964-4291-a67b-23eb4a890e75.jpg",
+        avatar: "/einstein/3ea43354-b4b7-4572-b446-569a2df0de6c.jpg",
         tagline: "想象力比知识更重要。",
         personality: "幽默、反思、跳脱。他以相对论重塑了时空观，认为真理往往隐藏在最简单的公式之中。",
         isOnline: true,
@@ -55,7 +55,7 @@ export const mockCharacters: Character[] = [
     {
         id: "newton",
         name: "牛顿 (Newton)",
-        avatar: "/newton/a42b3c2d-9964-4291-a67b-23eb4a890e75.jpg",
+        avatar: "/newton/1b21b5bb-30a9-4630-af53-1eb33997d762.jpg",
         tagline: "我只是站在巨人的肩膀上。",
         personality: "严谨、孤傲、专注。他奠定了经典力学的基础，认为自然界遵循着绝对的数学规律。",
         isOnline: true,
@@ -65,7 +65,7 @@ export const mockCharacters: Character[] = [
     {
         id: "heisenberg",
         name: "海森堡 (Heisenberg)",
-        avatar: "/heisenberg/c7b23c2d-9961-4291-a67b-23eb4a890e75.jpg",
+        avatar: "/heisenberg/240b8e60-4c38-4699-9a45-9f929afdb2b0.jpg",
         tagline: "测不准是宇宙的本原。",
         personality: "敏锐、辩证、神秘。他揭示了微观世界的随机性，认为观察本身就会改变现实。",
         isOnline: true,
@@ -75,7 +75,7 @@ export const mockCharacters: Character[] = [
     {
         id: "leibniz",
         name: "莱布尼茨 (Leibniz)",
-        avatar: "/leibniz/d1a23c2d-9964-4291-a67b-23eb4a890e75.jpg",
+        avatar: "/leibniz/5fb45bab-73fc-4606-bd69-4653bd5ac350.jpg",
         tagline: "二进制是上帝的语言。",
         personality: "博学、乐观、和谐。他独立发明了微积分，并坚信这个世界是所有可能的世界中最好的一个。",
         isOnline: true,
