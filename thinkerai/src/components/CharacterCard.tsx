@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { Character } from '@/lib/types';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { cn } from '@/lib/utils';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface CharacterCardProps {
     character: Character;
@@ -12,6 +13,7 @@ interface CharacterCardProps {
 }
 
 export function CharacterCard({ character, isActive, onClick }: CharacterCardProps) {
+    const { t } = useLanguage();
     const [currentTime, setCurrentTime] = useState<number | null>(null);
 
     useEffect(() => {
@@ -43,8 +45,8 @@ export function CharacterCard({ character, isActive, onClick }: CharacterCardPro
             <div className="flex items-start gap-3">
                 <div className="relative">
                     <Avatar className="h-12 w-12 border-2 border-primary/20">
-                        <AvatarImage src={character.avatar} alt={character.name} />
-                        <AvatarFallback>{character.name[0]}</AvatarFallback>
+                        <AvatarImage src={character.avatar} alt={t('characters.' + character.id)} />
+                        <AvatarFallback>{t('characters.' + character.id)[0]}</AvatarFallback>
                     </Avatar>
                     {character.isOnline && (
                         <div className="absolute bottom-0 right-0 h-3 w-3 bg-green-500 rounded-full border-2 border-background" />
@@ -53,7 +55,7 @@ export function CharacterCard({ character, isActive, onClick }: CharacterCardPro
 
                 <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2 mb-1">
-                        <h3 className="font-semibold text-sm truncate">{character.name}</h3>
+                        <h3 className="font-semibold text-sm truncate">{t('characters.' + character.id)}</h3>
                         {character.lastMessageTime && (
                             <span className="text-xs text-muted-foreground flex-shrink-0">
                                 {formatTime(character.lastMessageTime)}
@@ -61,7 +63,7 @@ export function CharacterCard({ character, isActive, onClick }: CharacterCardPro
                         )}
                     </div>
                     <p className="text-xs text-muted-foreground truncate mb-1">
-                        {character.tagline}
+                        {t('characters.' + character.id + '.tagline')}
                     </p>
                     {character.lastMessage && (
                         <p className="text-xs text-muted-foreground truncate">

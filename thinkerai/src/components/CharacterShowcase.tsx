@@ -11,6 +11,7 @@ export function CharacterShowcase() {
   const [hoveredCharacter, setHoveredCharacter] = useState<string | null>(null);
   const [showGuidance, setShowGuidance] = useState(false);
   const { t, language } = useLanguage();
+  console.log(`[Debug] Language: ${language}, Sample Translation: ${t('characters.fuxi')}`);
   const { isDebateModeActive, selectedCharacterIds, toggleCharacterSelection, characters } = useChatContext();
 
   // 🏮 降神指南逻辑：切换瞬间弹出气泡
@@ -74,7 +75,7 @@ export function CharacterShowcase() {
         </div>
 
         {/* 🏮 圣贤法相流水阵 (Character Avatar Row) - 找回遗失的灵韵 */}
-        <div className="grid grid-cols-4 sm:grid-cols-4 lg:grid-cols-8 gap-6 mb-12 relative z-50">
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-12 relative z-50 py-4 border-y border-white/5">
           {characters.map((character) => (
             <div
               key={`thumb-${character.id}`}
@@ -87,12 +88,12 @@ export function CharacterShowcase() {
               )}>
                 <img
                   src={character.avatar}
-                  alt={character.name}
+                  alt={t('characters.' + character.id)}
                   className="w-full h-full object-cover"
                 />
               </div>
               <span className="mt-3 text-[10px] font-bold tracking-widest text-foreground/60 group-hover:text-sage-gold transition-colors uppercase whitespace-nowrap">
-                {character.name.split(' ')[0]}
+                {t('characters.' + character.id).split(' ')[0]}
               </span>
             </div>
           ))}
@@ -150,7 +151,7 @@ export function CharacterShowcase() {
                       ) : (
                         <img
                           src={character.avatar}
-                          alt={character.name}
+                          alt={t('characters.' + character.id)}
                           className={cn(
                             "w-full h-full object-cover transition-all duration-1000",
                             hoveredCharacter === character.id ? 'scale-110' : 'scale-100',
@@ -181,7 +182,7 @@ export function CharacterShowcase() {
                       "block text-base font-bold transition-colors tracking-widest uppercase text-[10px]",
                       selectedCharacterIds.includes(String(character.id)) ? "text-sage-gold" : "text-foreground/80 group-hover:text-sage-gold"
                     )}>
-                      {character.name}
+                      {t('characters.' + character.id)}
                     </span>
                     <div className={cn(
                       "h-[2px] mx-auto transition-all duration-500 rounded-full",

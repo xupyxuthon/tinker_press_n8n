@@ -79,7 +79,7 @@ export function SidebarNavigation({ isOpen = false, onClose }: SidebarNavigation
         <div className="flex flex-col h-full">
           {/* Mobile Header */}
           <div className="flex items-center justify-between p-4 border-b border-border">
-            <h2 className="text-lg font-semibold">Menu</h2>
+            <h2 className="text-lg font-semibold">{t('sidebar.menu')}</h2>
             <Button variant="ghost" size="sm" onClick={() => {
               setIsMobileMenuOpen(false);
               if (onClose) onClose();
@@ -111,7 +111,7 @@ export function SidebarNavigation({ isOpen = false, onClose }: SidebarNavigation
               <div className="mt-8 pt-6 border-t border-border/50 px-3">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-[10px] font-bold text-muted-foreground tracking-widest uppercase">
-                    {language === 'zh' ? '众神对冲' : 'Debate Protocol'}
+                    {t('sidebar.debateProtocol')}
                   </span>
                   <Swords className="h-3 w-3 text-sage-gold opacity-50" />
                 </div>
@@ -135,8 +135,8 @@ export function SidebarNavigation({ isOpen = false, onClose }: SidebarNavigation
                     isDebateModeActive ? "text-purple-300" : "text-muted-foreground"
                   )}>
                     {isDebateModeActive
-                      ? (language === 'zh' ? '协议已激活' : 'Protocol Active')
-                      : (language === 'zh' ? '激活对冲协议' : 'Activate Debate')}
+                      ? t('sidebar.protocolActive')
+                      : t('sidebar.activateProtocol')}
                   </span>
                 </button>
               </div>
@@ -150,7 +150,7 @@ export function SidebarNavigation({ isOpen = false, onClose }: SidebarNavigation
               size="sm"
             >
               <Crown className="mr-2 h-4 w-4" />
-              Become Premium
+              {t('sidebar.becomePremium')}
               <Badge className="ml-2 bg-white text-black text-xs">70% OFF</Badge>
             </Button>
           </div>
@@ -245,7 +245,7 @@ export function SidebarNavigation({ isOpen = false, onClose }: SidebarNavigation
               )}>
                 {!isCollapsed && (
                   <span className="text-[10px] font-bold text-muted-foreground tracking-widest uppercase">
-                    {language === 'zh' ? '众神对冲' : 'Debate Protocol'}
+                    {t('sidebar.debateProtocol')}
                   </span>
                 )}
                 <Swords className={cn("h-3 w-3 text-sage-gold opacity-50", isCollapsed && "h-4 w-4")} />
@@ -276,8 +276,8 @@ export function SidebarNavigation({ isOpen = false, onClose }: SidebarNavigation
                   isCollapsed ? "opacity-0 w-0 overflow-hidden" : "opacity-100 w-auto"
                 )}>
                   {isDebateModeActive
-                    ? (language === 'zh' ? '协议已激活' : 'Protocol Active')
-                    : (language === 'zh' ? '激活对冲协议' : 'Activate Debate')}
+                    ? t('sidebar.protocolActive')
+                    : t('sidebar.activateProtocol')}
                 </span>
 
                 {isDebateModeActive && !isCollapsed && (
@@ -303,7 +303,7 @@ export function SidebarNavigation({ isOpen = false, onClose }: SidebarNavigation
             <Crown className={cn("h-4 w-4", isCollapsed ? "mr-0" : "mr-2")} />
             {!isCollapsed && (
               <>
-                Become Premium
+                {t('sidebar.becomePremium')}
                 <Badge className="ml-2 bg-white text-black text-xs">70% OFF</Badge>
               </>
             )}

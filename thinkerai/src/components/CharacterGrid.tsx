@@ -8,6 +8,7 @@ import { Search, Filter, Heart, MessageCircle, ArrowRight } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
 import { useChatContext } from '@/contexts/ChatContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const categories = ["All", "Sage", "Scientist", "Philosopher"];
 
@@ -15,6 +16,7 @@ export function CharacterGrid() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const { characters } = useChatContext();
+  const { t } = useLanguage();
 
   const filteredCharacters = characters.filter((char) => {
     const matchesSearch = char.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -87,11 +89,11 @@ export function CharacterGrid() {
                 <Avatar className="w-full h-full rounded-none">
                   <AvatarImage
                     src={character.avatar}
-                    alt={character.name}
+                    alt={t('characters.' + character.id)}
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <AvatarFallback className="text-4xl gradient-primary text-white">
-                    {character.name[0]}
+                    {t('characters.' + character.id)[0]}
                   </AvatarFallback>
                 </Avatar>
               )}
@@ -105,10 +107,10 @@ export function CharacterGrid() {
               <div className="flex items-start justify-between mb-2">
                 <div className="flex-1">
                   <h3 className="font-semibold text-lg text-foreground group-hover:text-gradient-primary transition-all duration-300">
-                    {character.name}
+                    {t('characters.' + character.id)}
                   </h3>
                   <p className="text-sm text-muted-foreground line-clamp-1">
-                    {character.tagline}
+                    {t('characters.' + character.id + '.tagline')}
                   </p>
                 </div>
               </div>

@@ -29,7 +29,12 @@ export const translations: Translations = {
   'sidebar.contactUs': { en: 'Contact Us', zh: '联系我们', ja: 'お問い合わせ' },
   'sidebar.affiliate': { en: 'Affiliate', zh: '联盟计划', ja: 'アフィリエイト' },
   'sidebar.privacyNotice': { en: 'Privacy Notice', zh: '隐私声明', ja: 'プライバシー通知' },
-  'sidebar.termsOfService': { en: 'Terms of Service', zh: '服务条款', ja: '利用規約' },
+  'sidebar.termsOfService': { en: 'Terms of Service', zh: '服务条款', ja: '利用規约' },
+  'sidebar.debateProtocol': { en: 'Debate Protocol', zh: '众神对冲', ja: '神々の対立' },
+  'sidebar.protocolActive': { en: 'Protocol Active', zh: '协议已激活', ja: 'プロトコル有効' },
+  'sidebar.activateProtocol': { en: 'Activate Debate', zh: '激活对冲协议', ja: '対立を有効化' },
+  'sidebar.becomePremium': { en: 'Become Premium', zh: '成为高级用户', ja: 'プレミアムになる' },
+  'sidebar.menu': { en: 'Menu', zh: '菜单', ja: 'メニュー' },
 
   // Character Names
   'characters.fuxi': { en: 'Fuxi', zh: '伏羲', ja: '伏羲' },
@@ -41,6 +46,14 @@ export const translations: Translations = {
   'characters.heisenberg': { en: 'Werner Heisenberg', zh: '海森堡', ja: 'ヴェルナー・ハイゼンベルク' },
   'characters.leibniz': { en: 'Gottfried Wilhelm Leibniz', zh: '莱布尼茨', ja: 'ゴットフリート・ヴィルヘルム・ライプニッツ' },
   'characters.andrewNg': { en: 'Andrew Ng', zh: '吴恩达', ja: 'アンドリュー・ン' },
+  'characters.fuxi.tagline': { en: 'Ancestor of civilization, origin of Bagua', zh: '人文始祖，八卦之宗', ja: '人文始祖、八卦の宗' },
+  'characters.darwin.tagline': { en: 'Father of evolution, natural selection', zh: '演化论之父，物竞天择', ja: '進化論の父、自然淘汰' },
+  'characters.laozi.tagline': { en: 'The Tao follows nature, wu wei', zh: '道法自然，无为而治', ja: '道法自然、無為自然' },
+  'characters.confucius.tagline': { en: 'Master of rituals and teacher of ages', zh: '克己复礼，万世师表', ja: '克己復礼、万世の師' },
+  'characters.einstein.tagline': { en: 'Imagination is more important than knowledge', zh: '想象力比知识更重要', ja: '想像力は知識より重要' },
+  'characters.newton.tagline': { en: 'Standing on the shoulders of giants', zh: '我只是站在巨人的肩膀上', ja: '巨人の肩の上に立つ' },
+  'characters.heisenberg.tagline': { en: 'Uncertainty is the origin of the universe', zh: '测不准是宇宙的本原', ja: '不確定性は宇宙の根源' },
+  'characters.leibniz.tagline': { en: 'Binary is the language of God', zh: '二进制是上帝的语言', ja: '二進法は神の言語' },
 
   // Character Attributes
   'characterAttributes.name': { en: 'Name', zh: '姓名', ja: '名前' },
