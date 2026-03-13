@@ -72,18 +72,29 @@ export function CharacterGrid() {
               </div>
             )}
 
-            {/* Avatar */}
+            {/* Avatar / Video */}
             <div className="aspect-square relative overflow-hidden gradient-card">
-              <Avatar className="w-full h-full rounded-none">
-                <AvatarImage
-                  src={character.avatar}
-                  alt={character.name}
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+              {character.video ? (
+                <video
+                  src={character.video}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <AvatarFallback className="text-4xl gradient-primary text-white">
-                  {character.name[0]}
-                </AvatarFallback>
-              </Avatar>
+              ) : (
+                <Avatar className="w-full h-full rounded-none">
+                  <AvatarImage
+                    src={character.avatar}
+                    alt={character.name}
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <AvatarFallback className="text-4xl gradient-primary text-white">
+                    {character.name[0]}
+                  </AvatarFallback>
+                </Avatar>
+              )}
 
               {/* Overlay gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

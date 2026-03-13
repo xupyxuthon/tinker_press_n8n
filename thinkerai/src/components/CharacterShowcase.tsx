@@ -73,6 +73,31 @@ export function CharacterShowcase() {
           />
         </div>
 
+        {/* 🏮 圣贤法相流水阵 (Character Avatar Row) - 找回遗失的灵韵 */}
+        <div className="grid grid-cols-4 sm:grid-cols-4 lg:grid-cols-8 gap-6 mb-12 relative z-50">
+          {characters.map((character) => (
+            <div
+              key={`thumb-${character.id}`}
+              className="relative group cursor-pointer flex flex-col items-center"
+              onClick={(e) => handleCharacterClick(character.id, e)}
+            >
+              <div className={cn(
+                "w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 transition-all duration-500 hover:scale-110",
+                hoveredCharacter === character.id ? "border-sage-gold shadow-[0_0_15px_rgba(212,175,55,0.4)]" : "border-white/10 group-hover:border-sage-gold/60"
+              )}>
+                <img
+                  src={character.avatar}
+                  alt={character.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <span className="mt-3 text-[10px] font-bold tracking-widest text-foreground/60 group-hover:text-sage-gold transition-colors uppercase whitespace-nowrap">
+                {character.name.split(' ')[0]}
+              </span>
+            </div>
+          ))}
+        </div>
+
         {/* 标题 */}
         <div className="mb-8 relative z-50">
           <h2 className="text-3xl sm:text-4xl font-bold text-gradient-primary tracking-tighter">
@@ -85,72 +110,88 @@ export function CharacterShowcase() {
 
         {/* 圣贤格阵 (Character Grid) */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 relative z-50">
-          {characters.map((character) => (
-            <div
-              key={character.id}
-              className="relative"
-              onMouseEnter={() => handleMouseEnter(character.id)}
-              onMouseLeave={() => handleMouseLeave(character.id)}
-            >
-              <Link
-                href={isDebateModeActive ? "#" : `/${character.id}`}
-                onClick={(e) => handleCharacterClick(character.id, e)}
-                className="flex flex-col group cursor-pointer relative"
+          {characters.map((character) => {
+            return (
+              <div
+                key={character.id}
+                className="relative"
+                onMouseEnter={() => handleMouseEnter(character.id)}
+                onMouseLeave={() => handleMouseLeave(character.id)}
               >
-                <div className={cn(
-                  "relative aspect-[3/4] rounded-3xl transition-all duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)] will-change-transform shadow-2xl",
-                  selectedCharacterIds.includes(String(character.id)) ? "scale-[1.05] shadow-[0_0_30px_rgba(212,175,55,0.3)]" : "group-hover:scale-[1.03]"
-                )}>
-                  {/* Border Layer */}
+                <Link
+                  href={isDebateModeActive ? "#" : `/${character.id}`}
+                  onClick={(e) => handleCharacterClick(character.id, e)}
+                  className="flex flex-col group cursor-pointer relative"
+                >
                   <div className={cn(
-                    "absolute inset-0 rounded-3xl border transition-colors duration-500 z-30 pointer-events-none",
-                    selectedCharacterIds.includes(String(character.id)) ? "border-sage-gold border-2" : "border-border/10 group-hover:border-sage-gold/40"
-                  )} />
-
-                  {/* Image & Content Wrapper */}
-                  <div className="absolute inset-0 rounded-3xl overflow-hidden z-10 bg-card/40">
-                    <img
-                      src={character.avatar}
-                      alt={character.name}
-                      className={cn(
-                        "w-full h-full object-cover transition-all duration-1000",
-                        hoveredCharacter === character.id ? 'scale-110' : 'scale-100',
-                        isDebateModeActive && !selectedCharacterIds.includes(String(character.id)) ? 'grayscale-[0.5]' : 'grayscale-0'
-                      )}
-                    />
-
-                    {/* Selection Overlay */}
-                    {isDebateModeActive && (
-                      <div className={cn(
-                        "absolute inset-0 z-30 flex flex-col items-center justify-center transition-all duration-500",
-                        selectedCharacterIds.includes(String(character.id)) ? "bg-sage-gold/10" : "bg-black/20 opacity-0 group-hover:opacity-100"
-                      )}>
-                        <div className={cn(
-                          "w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-700",
-                          selectedCharacterIds.includes(String(character.id)) ? "bg-sage-gold border-white scale-125 shadow-[0_0_15px_#d4af37]" : "border-white/40 bg-black/20"
-                        )}>
-                          {selectedCharacterIds.includes(String(character.id)) && <Check className="h-6 w-6 text-white" />}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-
-                <div className="text-center mt-6 space-y-1 pointer-events-none">
-                  <span className={cn(
-                    "block text-base font-bold transition-colors tracking-widest uppercase text-[10px]",
-                    selectedCharacterIds.includes(String(character.id)) ? "text-sage-gold" : "text-foreground/80 group-hover:text-sage-gold"
+                    "relative aspect-[3/4] rounded-3xl transition-all duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)] will-change-transform shadow-2xl",
+                    selectedCharacterIds.includes(String(character.id)) ? "scale-[1.05] shadow-[0_0_30px_rgba(212,175,55,0.3)]" : "group-hover:scale-[1.03]"
                   )}>
-                    {character.name}
-                  </span>
-                  <div className={cn(
-                    "h-[2px] mx-auto transition-all duration-500 rounded-full",
-                    selectedCharacterIds.includes(String(character.id)) ? "w-12 bg-sage-gold shadow-[0_0_8px_#d4af37]" : "w-0 group-hover:w-8 bg-sage-gold"
-                  )} />
-                </div>
-              </Link>
-            </div>
-          ))}
+                    {/* Border Layer */}
+                    <div className={cn(
+                      "absolute inset-0 rounded-3xl border transition-colors duration-500 z-30 pointer-events-none",
+                      selectedCharacterIds.includes(String(character.id)) ? "border-sage-gold border-2" : "border-border/10 group-hover:border-sage-gold/40"
+                    )} />
+
+                    {/* Image & Content Wrapper */}
+                    <div className="absolute inset-0 rounded-3xl overflow-hidden z-10 bg-card/40">
+                      {character.video && hoveredCharacter === character.id ? (
+                        <video
+                          src={character.video}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className={cn(
+                            "w-full h-full object-cover transition-all duration-1000 scale-110",
+                            isDebateModeActive && !selectedCharacterIds.includes(String(character.id)) ? 'grayscale-[0.5]' : 'grayscale-0'
+                          )}
+                        />
+                      ) : (
+                        <img
+                          src={character.avatar}
+                          alt={character.name}
+                          className={cn(
+                            "w-full h-full object-cover transition-all duration-1000",
+                            hoveredCharacter === character.id ? 'scale-110' : 'scale-100',
+                            isDebateModeActive && !selectedCharacterIds.includes(String(character.id)) ? 'grayscale-[0.5]' : 'grayscale-0'
+                          )}
+                        />
+                      )}
+
+                      {/* Selection Overlay */}
+                      {isDebateModeActive && (
+                        <div className={cn(
+                          "absolute inset-0 z-30 flex flex-col items-center justify-center transition-all duration-500",
+                          selectedCharacterIds.includes(String(character.id)) ? "bg-sage-gold/10" : "bg-black/20 opacity-0 group-hover:opacity-100"
+                        )}>
+                          <div className={cn(
+                            "w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-700",
+                            selectedCharacterIds.includes(String(character.id)) ? "bg-sage-gold border-white scale-125 shadow-[0_0_15px_#d4af37]" : "border-white/40 bg-black/20"
+                          )}>
+                            {selectedCharacterIds.includes(String(character.id)) && <Check className="h-6 w-6 text-white" />}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="text-center mt-6 space-y-1 pointer-events-none">
+                    <span className={cn(
+                      "block text-base font-bold transition-colors tracking-widest uppercase text-[10px]",
+                      selectedCharacterIds.includes(String(character.id)) ? "text-sage-gold" : "text-foreground/80 group-hover:text-sage-gold"
+                    )}>
+                      {character.name}
+                    </span>
+                    <div className={cn(
+                      "h-[2px] mx-auto transition-all duration-500 rounded-full",
+                      selectedCharacterIds.includes(String(character.id)) ? "w-12 bg-sage-gold shadow-[0_0_8px_#d4af37]" : "w-0 group-hover:w-8 bg-sage-gold"
+                    )} />
+                  </div>
+                </Link>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

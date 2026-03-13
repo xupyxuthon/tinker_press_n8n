@@ -87,8 +87,22 @@ export function ChatProvider({ children }: { children: ReactNode }) {
                         const sageMap = new Map<string, Character>();
                         // 1. 先载入当前所有角色（通常是 mockCharacters）作为基盘
                         prev.forEach(s => sageMap.set(String(s.id), s));
-                        // 2. 用同步回来的数据进行覆盖或新增
-                        syncedSages.forEach(s => sageMap.set(String(s.id), s));
+                        // 2. 用同步回来的数据进行智能合并（补强模式）
+                        syncedSages.forEach(remoteS => {
+                            const localS = sageMap.get(String(remoteS.id));
+                            if (localS) {
+                                // 🏮 圣域补强：仅当远程有真才实学（有效字段）时，才覆盖本地基石
+                                sageMap.set(String(remoteS.id), {
+                                    ...localS,
+                                    ...remoteS,
+                                    // 重点：如果远程没有视频动画，则保留本地的
+                                    video: remoteS.video || localS.video,
+                                    avatar: remoteS.avatar && !remoteS.avatar.includes('placeholder') ? remoteS.avatar : localS.avatar
+                                });
+                            } else {
+                                sageMap.set(String(remoteS.id), remoteS);
+                            }
+                        });
 
                         const merged = Array.from(sageMap.values());
                         console.log(`[ChatContext] 灵韵合一完成。当前圣殿共有 ${merged.length} 位圣贤显圣。`);
